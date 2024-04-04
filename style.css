@@ -1,0 +1,59 @@
+form {
+  max-width: 66%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+input[type="text"] {
+  display: block;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 2px solid black;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+input[type="submit"] {
+  display: block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+input.orange-background {
+  background-color: #FF4500;
+}
+
+.teacher {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.teacher-info {
+  text-align: left;
+  margin-left: 2em;
+}
+
+#results {
+  margin-top: 2em;
+}
+
+/* 모바일에서만 적용할 스타일 */
+@media (max-width: 375px) {
+  body {
+    font-size: 14px;
+  }
+}

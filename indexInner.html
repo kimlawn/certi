@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="logo.ico">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width*0.8, initial-scale=1.0">
+    <title>이수증 배포</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <center>
+      <h1>이수증 배포</h1>
+    </center>
+    <form>
+      <div>
+        <label for="number">기수:</label>
+        <input type="text" id="number" name="number" placeholder="ex) 24, 24-2, 31" style="opacity: 0.3;">
+      </div>
+      <div>
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="submit-button-container">
+        <input type="submit" value="Search">
+      </div>
+    </form>
+    <div id="results"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
