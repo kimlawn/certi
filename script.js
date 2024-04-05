@@ -1,25 +1,28 @@
-const dataUrl = "https://raw.githubusercontent.com/mtinet/supervisorList/main/supervisorList.csv";
+const dataUrl = "https://raw.githubusercontent.com/mtinet/certi/main/certi.csv";
 const resultsContainer = document.getElementById("results");
 
 
 function searchName(name, number) {
-  // 기수와 이름이 둘 다 입력되지 않았을 경우에 대한 검증 추가
-  if (name === "" || number === "") {
-    displayResults("기수와 이름을 모두 입력하고 검색해주세요.");
-    return; // 필요한 정보가 모두 제공되지 않으면 검색을 하지 않고 종료
+  if (name.trim() === "" || number.trim() === "") {
+    displayResults("생년월일과 이름을 모두 입력하고 검색해주세요.");
+    return;
   }
 
-  // 사용자 입력으로부터 받은 number를 문자열로 처리하고, 정확히 6자리 숫자 형태인지 확인
-  const formattedNumber = number.trim();
+  // 입력값의 앞뒤 공백 제거 및 소문자 변환을 통한 정규화
+  const normalizedNumber = number.trim();
+  const normalizedName = name.trim().toLowerCase();
 
   fetch(dataUrl)
     .then(response => response.text())
     .then(data => {
       const rows = data.trim().split("\n").slice(1);
-      const teachers = rows.map(row => row.split(","));
+      const teachers = rows.map(row => row.split(",").map(value => value.trim()));
+
       let matchingTeachers = teachers.filter(teacher => {
-        // CSV 파일 내의 number와 사용자 입력 number가 6자리 숫자로서 일치하는 경우에만 필터링
-        return teacher[1].trim() === formattedNumber && teacher[2] === name;
+        // CSV 데이터와 입력값의 대소문자 구분 없이 비교
+        const teacherNumber = teacher[1];
+        const teacherName = teacher[2].toLowerCase();
+        return teacherNumber === normalizedNumber && teacherName === normalizedName;
       });
 
       if (matchingTeachers.length > 0) {
@@ -33,7 +36,6 @@ function searchName(name, number) {
 
 
 
-
 function displayResults(teachers) {
   if (typeof teachers === "string") {
     resultsContainer.innerHTML = teachers;
@@ -42,9 +44,9 @@ function displayResults(teachers) {
       <div class="teacher">
         <div class="teacher-info">
           <h2>${teacher[2]}</h2>
-          <p><strong>Batch No.:</strong> ${teacher[1]}기</p>
+          <p><strong>생년월일:</strong> ${teacher[1]}</p>
           <!-- PDF 다운로드 링크 추가 -->
-          <p><a href="pdf/${teacher[0]}.pdf" download="${teacher[0]}.pdf">Download PDF</a></p>
+          <p><a href="https://github.com/mtinet/certi/blob/08cded10d87d3c9fbc31707cf4bcb89c533797d6/pdf/${teacher[0]}.pdf?raw=true" download="${teacher[0]}.pdf">Download PDF</a></p>
         </div>
       </div>
     `).join("");
