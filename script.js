@@ -45,7 +45,7 @@ function displayResults(teachers) {
           <h2>${teacher[2]}</h2>
           <p><strong>생년월일:</strong> ${teacher[1]}</p>
           <!-- PDF 다운로드 링크 추가 -->
-          <p><a href="https://github.com/mtinet/certi/blob/main/pdf/${teacher[0]}.pdf?raw=true" download="${teacher[0]}.pdf">Download PDF</a></p>
+          <p><a href="https://github.com/kimlawn/certi/blob/main/pdf/${teacher[0]}.pdf?raw=true" download="${teacher[0]}.pdf">Download PDF</a></p>
         </div>
       </div>
     `).join("");
