@@ -1,4 +1,4 @@
-const dataUrl = "https://raw.githubusercontent.com/mtinet/certi/main/certi.csv";
+const dataUrl = "https://raw.githubusercontent.com/kimlawn/certi/main/certi.csv";
 const resultsContainer = document.getElementById("results");
 
 
