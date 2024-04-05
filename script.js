@@ -35,7 +35,6 @@ function searchName(name, number) {
 }
 
 
-
 function displayResults(teachers) {
   if (typeof teachers === "string") {
     resultsContainer.innerHTML = teachers;
@@ -53,7 +52,6 @@ function displayResults(teachers) {
     resultsContainer.innerHTML = html;
   }
 }
-
 
 
 const form = document.querySelector("form");
